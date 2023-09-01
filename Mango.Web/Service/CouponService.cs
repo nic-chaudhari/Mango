@@ -17,7 +17,7 @@ namespace Mango.Web.Service
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = SD.ApiType.POST,
-                Data = couponDto,
+                Data= couponDto,
                 Url = SD.CouponAPIBase + "/api/coupon" 
             });
         }
@@ -60,7 +60,12 @@ namespace Mango.Web.Service
 
         public async Task<ResponseDto?> UpdateCouponsAsync(CouponDto couponDto)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = SD.ApiType.PUT,
+                Data = couponDto,
+                Url = SD.CouponAPIBase + "/api/coupon"
+            });
         }
     }
 }
